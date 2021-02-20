@@ -1,3 +1,22 @@
+Updated 12-02-2020 [V2.0.X.17] 
+-With latest addition to the XYZ display (https://github.com/MarlinFirmware/Marlin/pull/20983)
+-Updated to the latest Marlin (12-02-2021)
+
+Updated 19-12-2020 [V2.0.X.16]
+-Many marlin bug fixes
+-Updated to the latest Marlin (19-12-2020)
+
+Updated 20-11-2020 [V2.0.X.15]
+-Clean up codes warning (Credit to to NickDevoctomy)
+-Marlin bug fix (live z offset adjustment)
+-Updated to the latest Marlin (20-11-2020)
+
+Updated 13-10-2020 [V2.0.X.14]
+-Delete plr when cancelling resume print
+-Improve Refuel feature (faster feed rate 150mm/s)
+-Marlin bug fix (Stop print will now stop properly)
+-Updated to the latest Marlin (12-10-2020)
+
 Updated 02-10-2020 [V2.0.X.13] 
 -Resume Printing is now working properly
 -Support MicroSD card extension cable (no longer need to reseat extension or restart printer)
@@ -51,3 +70,29 @@ Updated 28-7-2020 [V2.0.X.5]
 Updated 25-7-2020 [V2.0.X.4]
 -Adjusted max bed size back to 220 as some users are facing issue where it's printing outside of edge. 
 -Previous version was using value of 220 + 15 as it helps BLTouch to probe nearer to edge for better mesh output.
+
+Internal Reference
+
+#define FILAMENT_RUNOUT_SENSOR
+#define NOZZLE_TO_PROBE_OFFSET
+#define BLTOUCH_HS_MODE
+#define GRID_MAX_POINTS_X
+#define X_BED_SIZE
+
+#define Z_MIN_PROBE_USES_Z_MIN_ENDSTOP_PIN
+
+//For Standard Filament Runout Sensor
+#define FIL_RUNOUT_STATE     HIGH 
+
+//For BTT Filament Smart Sensor
+#define FIL_RUNOUT_STATE     LOW 
+#define FILAMENT_RUNOUT_DISTANCE_MM 7
+#define FILAMENT_MOTION_SENSOR
+//For RaspBerry BTT
+#define HOST_ACTION_COMMANDS
+#define HOST_PROMPT_SUPPORT
+
+Change: #define MOTHERBOARD BOARD_CREALITY_V4
+To: #define MOTHERBOARD BOARD_CREALITY_V427
+
+//All Metal Max Temp #define HEATER_0_MAXTEMP 300
