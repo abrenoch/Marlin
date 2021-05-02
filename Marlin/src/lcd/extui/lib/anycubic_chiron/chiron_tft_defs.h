@@ -105,8 +105,8 @@
 
 #define AC_cmnd_manual_load_filament   PSTR("M83\nG1 E50 F700\nM82")   // replace the manual panel commands with something a little faster
 #define AC_cmnd_manual_unload_filament PSTR("M83\nG1 E-50 F1200\nM82")
-#define AC_cmnd_enable_levelling       PSTR("M420 S1 V1")
-#define AC_cmnd_power_loss_recovery    PSTR("G28 X Y R5\nG28 Z")       // Lift, home X and Y then home Z when in 'safe' position
+#define AC_cmnd_enable_leveling        PSTR("M420SV")
+#define AC_cmnd_power_loss_recovery    PSTR("G28XYR5\nG28Z")           // Lift, home X and Y then home Z when in 'safe' position
 
 namespace Anycubic {
   enum heater_state_t : uint8_t {
@@ -114,13 +114,11 @@ namespace Anycubic {
     AC_heater_temp_set,
     AC_heater_temp_reached
   };
-
   enum paused_state_t : uint8_t {
     AC_paused_heater_timed_out,
     AC_paused_purging_filament,
     AC_paused_idle
   };
-
   enum printer_state_t : uint8_t {
     AC_printer_idle,
     AC_printer_probing,
@@ -130,13 +128,11 @@ namespace Anycubic {
     AC_printer_stopping,
     AC_printer_resuming_from_power_outage
   };
-
   enum timer_event_t : uint8_t {
     AC_timer_started,
     AC_timer_paused,
     AC_timer_stopped
   };
-
   enum media_event_t : uint8_t {
     AC_media_inserted,
     AC_media_removed,
@@ -148,4 +144,4 @@ namespace Anycubic {
     AC_menu_change_to_file,
     AC_menu_change_to_command
   };
-}
+} // Anycubic

@@ -1,3 +1,27 @@
+# Ender 3 V2 Extensible UI
+
+This fork was created with the intention of giving the best possible experience to E3V2 users. However, GitHub, flashing new firmware, etc. can all be quite daunting for new users. Pretty much everything you need to know is here on github, so here's a quick rundown of where to find what you need!
+
+## General Info
+
+Just got here? Check out the [wiki tab on GitHub](https://github.com/Jyers/Marlin/wiki) for all the information you need to get started. It has current features, OctoPrint settings, how to flash new firmware, etc. All the major information about the firmware can be found on the wiki.
+
+## Releases
+While you are welcome to compile the source yourself to get the most up to date features and fixes, there are structured releases for those who would rather stick to precompiled files. These can be found in the [releases section of GitHub](https://github.com/Jyers/Marlin/releases). Releases come out as needed, so make sure to check back every so often for new versions. The version number can be found in the info menu of the printer if you forget what release you last flashed.
+
+## Questions
+
+The [discussions tab](https://github.com/Jyers/Marlin/discussions) is home to any and all questions regarding the firmware. If you have a question, use the search feature to check if it has been asked before. If not, feel free to open up a discussion of your own. Just try to be clear on what exactly you want to know and provide a "steps to reproduce" if you are asking about a specific problem.
+
+## Issues
+
+If you are unsure of an issue and would like some community input, you can post about it in the GitHub discussions. Otherwise, if you believe you have found a bug in the firmware, create a new issue from the [issues tab on GitHub](https://github.com/Jyers/Marlin/issues). This creates an easy way to discuss and get to the root of any possible problems in an organized and formatted way. Make sure to provide a clear description of the problem and a "steps to reproduce" if applicable.
+
+## Feature Requests
+
+New feature ideas are always welcome and a great way to improve the firmware. There are three ways you can suggest a feature. If you have a general idea, but would like some community input on the feature, open up a discussion where everyone can chime in. If you have a concrete idea you think would benefit the firmware, you can create a feature request in the issus tab on GitHub. If you have a solid idea and have the ability to implement it yourself, implement it in your own fork and create a [pull request](https://github.com/Jyers/Marlin/pulls) to the main branch.
+
+
 # Marlin 3D Printer Firmware
 
 ![GitHub](https://img.shields.io/github/license/marlinfirmware/marlin.svg)
@@ -110,6 +134,11 @@ Proposed patches should be submitted as a Pull Request against the ([bugfix-2.0.
 - This branch is for fixing bugs and integrating any new features for the duration of the Marlin 2.0.x life-cycle.
 - Follow the [Coding Standards](https://marlinfw.org/docs/development/coding_standards.html) to gain points with the maintainers.
 - Please submit Feature Requests and Bug Reports to the [Issue Queue](https://github.com/MarlinFirmware/Marlin/issues/new/choose). Support resources are also listed there.
+- Whenever you add new features, be sure to add tests to `buildroot/tests` and then run your tests locally, if possible.
+  - It's optional: Running all the tests on Windows might take a long time, and they will run anyway on GitHub.
+  - If you're running the tests on Linux (or on WSL with the code on a Linux volume) the speed is much faster.
+  - You can use `make tests-all-local` or `make tests-single-local TEST_TARGET=...`.
+  - If you prefer Docker you can use `make tests-all-local-docker` or `make tests-all-local-docker TEST_TARGET=...`.
 
 ### [RepRap.org Wiki Page](https://reprap.org/wiki/Marlin)
 
