@@ -31,6 +31,9 @@
 #if ENABLED(EXTENSIBLE_UI)
   #include "../../../lcd/extui/ui_api.h"
 #endif
+#if ENABLED(DWIN_CREALITY_LCD)
+  #include "../../../lcd/dwin/e3v2/dwin.h"
+#endif
 
 #define DEBUG_OUT ENABLED(DEBUG_POWER_LOSS_RECOVERY)
 #include "../../../core/debug_out.h"
@@ -40,7 +43,7 @@ void menu_job_recovery();
 inline void plr_error(PGM_P const prefix) {
   #if ENABLED(DEBUG_POWER_LOSS_RECOVERY)
     DEBUG_ECHO_START();
-    serialprintPGM(prefix);
+    DEBUG_ECHOPGM_P(prefix);
     DEBUG_ECHOLNPGM(" Job Recovery Data");
   #else
     UNUSED(prefix);
@@ -63,7 +66,7 @@ void GcodeSuite::M1000() {
       #if HAS_LCD_MENU
         ui.goto_screen(menu_job_recovery);
       #elif ENABLED(DWIN_CREALITY_LCD)
-        recovery.dwin_flag = true;
+        Popup_Handler(Resume);
       #elif ENABLED(EXTENSIBLE_UI)
         ExtUI::onPowerLossResume();
       #else
